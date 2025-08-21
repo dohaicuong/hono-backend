@@ -16,7 +16,7 @@ app
 					description: 'Greeting API',
 				},
 				servers: [
-					{ url: 'http://localhost:5000', description: 'Local Server' },
+					{ url: 'http://localhost:8787', description: 'Local Server' },
 				],
 			},
 		}),

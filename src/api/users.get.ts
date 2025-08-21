@@ -5,7 +5,7 @@ import { Hono } from 'hono'
 import { describeRoute } from 'hono-openapi'
 import { resolver } from 'hono-openapi/zod'
 import z from 'zod'
-import { db } from '../db/index.js'
+import { get_db } from '../db/index.js'
 import { usersTable } from '../db/schema.js'
 import { ApiUserSchema } from './schema.js'
 
@@ -37,6 +37,7 @@ export default new Hono().get(
 	),
 	async (c) => {
 		const { email } = c.req.valid('query')
+		const db = get_db()
 
 		const userQuery = db.select().from(usersTable)
 		if (email) {
